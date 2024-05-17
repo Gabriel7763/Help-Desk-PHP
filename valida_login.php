@@ -1,4 +1,5 @@
 <?php 
+    session_start();
     //verificando se a autenticação foi relizada
     $usuario_autenticado = false;
     //usuarios do sistema
@@ -13,8 +14,9 @@
     }
 
     if($usuario_autenticado){
-
+        $_SESSION['autenticado'] = 'SIM';
     }else{
+        $_SESSION['autenticado'] = 'NAO';
         //Enviando o usuário para a página de login com mensagem de erro
         header('Location: index.php?login=erro');
     }
