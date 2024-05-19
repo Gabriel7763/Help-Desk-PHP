@@ -1,3 +1,3 @@
-Conta de Água| Software| Muita agua
-Computador não liga| Hardware| PC não liga
-Conta de Luz| Software| Luzzz
+3|Computador não liga|Hardware|PC
+3|Telefone não funciona|Hardware|tel
+4|Computador não liga|Hardware|PC

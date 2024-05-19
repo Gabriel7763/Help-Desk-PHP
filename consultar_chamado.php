@@ -1,6 +1,5 @@
-<? require_once "validador_acesso.php"; ?>
+<?php require_once "validador_acesso.php"; ?>
 <?php 
-  
   //chamados
   $chamados = array();
 
@@ -10,7 +9,22 @@
   while(!feof($arquivo)){// testa pelo fim de um arquivo
     //ler uma linha
     $registro = fgets($arquivo);
-    $chamados[] = $registro;
+    
+    //explode dos detalhes do registro para verificar o id do usuário responsável pelo cadastro
+    $registro_detalhes = explode('|', $registro);
+    
+    //verificar se o chamado é de um usuário
+    if($_SESSION['perfil_id'] == 2){
+      //verificar se o chamado foi feito pelo próprio usuário
+      if($_SESSION['id'] != $chamado_dados[0]) {
+        continue;
+      }else {
+        $chamados[] = $registro;
+      }
+      
+    }else {
+      $chamados[] = $registro;
+    }
   }
   //fechar o arquivo
   fclose($arquivo);
@@ -59,6 +73,7 @@
 
                 <?php 
                   $chamado_dados = explode('|', $chamado);
+
                   /*conta a quandidade de elementos na variável, se for inferior a 3,
                   quer dize que está faltando título, categoria ou descrição, então, continue*/
                   if(count($chamado_dados) < 3) {
@@ -67,9 +82,9 @@
                 ?>
                 <div class="card mb-3 bg-light">
                   <div class="card-body">
-                    <h5 class="card-title"><?=$chamado_dados[0]?></h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[1]?></h6>
-                    <p class="card-text"><?=$chamado_dados[2]?></p>
+                    <h5 class="card-title"><?=$chamado_dados[1]?></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2]?></h6>
+                    <p class="card-text"><?=$chamado_dados[3]?></p>
 
                   </div>
                 </div>
