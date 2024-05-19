@@ -19,7 +19,7 @@
 
     <nav class="navbar navbar-dark bg-dark">
       <a class="navbar-brand" href="#">
-        <img src="logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="imagens/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
         App Help Desk
       </a>
       <ul class="navbar-nav">
@@ -41,15 +41,15 @@
               <div class="row">
                 <div class="col">
                   
-                  <form>
+                  <form action="registra_chamado.php" method="post">
                     <div class="form-group">
                       <label>Título</label>
-                      <input type="text" class="form-control" placeholder="Título">
+                      <input name="titulo" type="text" class="form-control" placeholder="Título">
                     </div>
                     
                     <div class="form-group">
                       <label>Categoria</label>
-                      <select class="form-control">
+                      <select name="categoria" class="form-control">
                         <option>Criação Usuário</option>
                         <option>Impressora</option>
                         <option>Hardware</option>
@@ -60,7 +60,7 @@
                     
                     <div class="form-group">
                       <label>Descrição</label>
-                      <textarea class="form-control" rows="3"></textarea>
+                      <textarea name="desc" class="form-control" rows="3"></textarea>
                     </div>
 
                     <div class="row mt-5">
